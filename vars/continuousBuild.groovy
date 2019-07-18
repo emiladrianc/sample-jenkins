@@ -20,7 +20,7 @@ def call(body) {
 	// 	timeout(time: 10, unit: 'MINUTES')
 	 	//timestamps()
 	// 	// disableConcurrentBuilds()
-     ])
+    //  ])
 	
     try {
         runPipeline config

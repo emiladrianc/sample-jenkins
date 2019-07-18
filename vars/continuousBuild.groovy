@@ -30,11 +30,14 @@ def runPipeline(config) {
     node("docker") {
 
         deleteDir()
-
+		echo "Directory deleted"
+		
 		checkout scm
+		echo "Checkout done"
 
         config.pomPath = getMvnPom()
-
+		echo "Got path"
+		
 		stage ("CI: Build") {
             config.version = setReleaseVersionInPomIso(config)
 

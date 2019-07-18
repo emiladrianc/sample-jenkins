@@ -23,9 +23,13 @@ def runPipeline(config) {
     RUN_UNIT_TESTS = true
 	UNIT_TESTS_REPORTS_ENABLED = true
 	RUN_SONAR_QUBE_ANALISYS = true
+    BUILD_DISCARDER_NUMBER_TO_KEEP = '5'
 	
-    options{timestamps()}
-    
+    buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
+    timeout(time: 10, unit: 'MINUTES')
+    timestamps()
+    disableConcurrentBuilds()
+
 	initConfig(config)
 
     node() {

@@ -26,7 +26,7 @@ def runPipeline(config) {
 	
 	initConfig(config)
 
-    node("docker") {
+    node() {
 
         deleteDir()
 		echo "Directory deleted"

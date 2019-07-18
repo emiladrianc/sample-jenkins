@@ -12,7 +12,7 @@ def call(body) {
 
     body()
 
-    //properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5')), disableConcurrentBuilds()])
+    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5')), disableConcurrentBuilds()])
 
 
 	 //properties([
@@ -43,8 +43,6 @@ def runPipeline(config) {
 	initConfig(config)
 
     node() {
-
-timeout(time: 10, unit: 'MINUTES')
 
         deleteDir()
 		echo "Directory deleted"

@@ -24,8 +24,7 @@ def runPipeline(config) {
 	UNIT_TESTS_REPORTS_ENABLED = true
 	RUN_SONAR_QUBE_ANALISYS = true
 	
-	def scmUtil = new ScmUtil()
-    initConfig(config)
+	initConfig(config)
 
     node("docker") {
 

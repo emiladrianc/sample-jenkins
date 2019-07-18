@@ -65,6 +65,11 @@ def runPipeline(config) {
 
             ciTest(config)
         }
+        
+        stage ("CI: end") {
+
+            sh 'ls'
+        }
     }
 }
 

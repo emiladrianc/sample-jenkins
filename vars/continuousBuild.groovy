@@ -12,12 +12,13 @@ def call(body) {
 
     body()
 
-	properties([
-		buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')),
-		timeout(time: 10, unit: 'MINUTES')
-		// timestamps()
-		// disableConcurrentBuilds()
-    ])
+    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5')), disableConcurrentBuilds()])
+	// properties([
+	// 	buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')),
+	// 	timeout(time: 10, unit: 'MINUTES')
+	// 	// timestamps()
+	// 	// disableConcurrentBuilds()
+    // ])
 	
     try {
         runPipeline config

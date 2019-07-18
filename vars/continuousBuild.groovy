@@ -24,6 +24,8 @@ def runPipeline(config) {
 	UNIT_TESTS_REPORTS_ENABLED = true
 	RUN_SONAR_QUBE_ANALISYS = true
 	
+    options{timestamps()}
+    
 	initConfig(config)
 
     node() {

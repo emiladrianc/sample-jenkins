@@ -5,6 +5,11 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
 
+    buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
+    timeout(time: 10, unit: 'MINUTES')
+    timestamps()
+    disableConcurrentBuilds()
+
     body()
 
     try {
@@ -25,11 +30,6 @@ def runPipeline(config) {
 	RUN_SONAR_QUBE_ANALISYS = true
     BUILD_DISCARDER_NUMBER_TO_KEEP = '5'
 	
-    buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
-    timeout(time: 10, unit: 'MINUTES')
-    timestamps()
-    disableConcurrentBuilds()
-
 	initConfig(config)
 
     node() {

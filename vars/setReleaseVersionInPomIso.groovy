@@ -6,7 +6,7 @@ def call(Map args) {
 def call( String pomPath, String aversion = null) {
 	String version = aversion ?: getReleaseVersionIso( "${env.BRANCH_NAME}" )
 	
-	mvn "-f ${pomPath} versions:set -DnewVersion=${version} -DgenerateBackupPoms=false"
+	//mvn "-f ${pomPath} versions:set -DnewVersion=${version} -DgenerateBackupPoms=false"
 	
 	return version
 }

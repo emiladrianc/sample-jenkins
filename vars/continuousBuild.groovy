@@ -1,22 +1,22 @@
 
-def call(config) {
+def call(body) {
     //  evaluate the body block, and collect configuration into the object
-    //def config = [:]
-    //body.resolveStrategy = Closure.DELEGATE_FIRST
-    //body.delegate = config
+    def config = [:]
+    body.resolveStrategy = Closure.DELEGATE_FIRST
+    body.delegate = config
 
-    buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
-    timeout(time: 10, unit: 'MINUTES')
-    timestamps()
-    disableConcurrentBuilds()
+    // buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
+    // timeout(time: 10, unit: 'MINUTES')
+    // timestamps()
+    // disableConcurrentBuilds()
 
-    //body()
+    body()
 
 	properties([
-		buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')),
-		timeout(time: 10, unit: 'MINUTES'),
-		timestamps(),
-		disableConcurrentBuilds()
+		buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5'))
+		// timeout(time: 10, unit: 'MINUTES')
+		// timestamps()
+		// disableConcurrentBuilds()
     ])
 	
     try {
